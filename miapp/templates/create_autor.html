@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load filters %}
+
+{% block title %}
+    Formulario en DJango
+{% endblock %}
+{% block content %}
+    <H1 class="title"> 
+        Formulario en DJango
+    </H1>
+    <form action="{% url 'save_autor' %}" method="POST">
+        {% csrf_token %}
+        <label for="nombre"> Nombre: </label>
+        <input type="text" name="nombre" />
+        <label for="apellido"> Apellidos: </label>
+        <input type="text" name="apellido" />
+        <label for="sexo"> Sexo: </label>
+        <select name="sexo">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select>
+        <label for="fecha"> Fecha de Nacimiento: </label>
+        <input type="text" name="fecha" />
+        <label for="pais"> Pais </label>
+        <label for="pais">Pais: </label>
+        <select name="pais">
+            <option value="Peru">Peru</option>
+            <option value="Chile">Chile</option>
+        </select>
+            
+
+        <input type="submit" value="Agregar" />
+
+    </form>
+{% endblock %}
